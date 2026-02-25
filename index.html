@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>My Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background: linear-gradient(-45deg, #c4b5fd, #ffffff, #a78bfa, #ffffff);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    .page {
+      position: absolute;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+      pointer-events: none;
+    }
+
+    .page.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .menu-btn {
+      padding: 16px;
+      background: white;
+      color: #6b21a8;
+      font-weight: 600;
+      border-radius: 9999px;
+    }
+
+    .task-card {
+      background: rgba(255,255,255,0.5);
+      padding: 20px;
+      border-radius: 18px;
+      text-align: center;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .skill-card {
+      background: rgba(255,255,255,0.6);
+      padding: 20px;
+      border-radius: 16px;
+      font-weight: 600;
+    }
+
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 10px 18px;
+      font-size: 20px;
+      background: white;
+      color: #6b21a8;
+      border-radius: 9999px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen text-purple-900 flex items-center justify-center relative">
+
+<!-- WELCOME -->
+<div id="welcome" class="page active text-center">
+  <h1 class="text-5xl font-bold mb-6">Fathimah's Website</h1>
+  <button onclick="showPage('menu')" class="px-10 py-3 bg-purple-600 text-white rounded-full">
+    Explore
+  </button>
+</div>
+
+<!-- MENU -->
+<div id="menu" class="page text-center">
+  <div class="glass p-14 rounded-3xl w-[650px]">
+    <h2 class="text-3xl font-bold mb-10">MENU</h2>
+
+    <div class="grid grid-cols-2 gap-6">
+      <button onclick="showPage('profil')" class="menu-btn">Profil</button>
+      <button onclick="showPage('skill')" class="menu-btn">Skill & Minat</button>
+      <button onclick="showPage('penugasan')" class="menu-btn">Penugasan</button>
+      <button onclick="showPage('portofolio')" class="menu-btn">Portofolio</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROFIL -->
+<div id="profil" class="page">
+  <div class="glass p-10 rounded-3xl w-[800px]">
+    <h2 class="text-3xl font-bold mb-6 text-center">Profil Diri</h2>
+
+    <div class="flex gap-8 items-center">
+      <img src="meh.jpeg"
+     class="w-52 h-52 aspect-square rounded-full object-cover border-4 border-purple-300">
+
+      <div>
+        <p><b>Nama:</b> Fathimah Az-Zahra Suriawinata</p>
+        <p><b>TTL:</b> Bandung, 29 September 2007</p>
+        <p class="mt-4">
+          Merupakan mahasiswa yang baru terjun ke dunia informatika dan masih terus dalam proses belajar. 
+          Meskipun berada di tahap awal, ia memiliki keinginan besar untuk mengeksplorasi berbagai bidang 
+          seperti pengembangan diri, salah satunya organisasi. 
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILL -->
+<div id="skill" class="page">
+  <div class="glass p-10 rounded-3xl w-[750px]">
+    <h2 class="text-3xl font-bold mb-6 text-center">Skill & Minat</h2>
+
+    <div class="grid grid-cols-2 gap-6 text-center">
+      <div class="skill-card">Teamwork 🤝</div>
+      <div class="skill-card">Knitting 🧶</div>
+      <div class="skill-card">Journaling 📔</div>
+      <div class="skill-card">Fundamental Programming 🌐</div>
+    </div>
+  </div>
+</div>
+
+<!-- PENUGASAN -->
+<div id="penugasan" class="page">
+  <div class="glass p-10 rounded-3xl w-[750px]">
+    <h2 class="text-3xl font-bold mb-6 text-center">Penugasan</h2>
+
+    <div class="grid grid-cols-3 gap-4">
+      <div class="task-card" onclick="showPage('tugas2')">TOR</div>
+      <div class="task-card" onclick="showPage('tugas3')">Infografis</div>
+      <div class="task-card" onclick="showPage('tugas4')">Video Studi Kasus</div>
+    </div>
+  </div>
+</div>
+
+<!-- INFOGRAFIS -->
+<div id="tugas3" class="page">
+  
+    <img src="infografis (2).jpg"
+     class="mx-auto rounded-lg mb-4 w-[400px] max-w-full">
+
+    <a href="infografis (2).jpg" download
+       class="px-6 py-2 bg-purple-400 text-white rounded-full">
+      Download
+    </a>
+  </div>
+</div>
+
+<!-- PORTOFOLIO -->
+<div id="portofolio" class="page">
+  <div class="glass p-10 rounded-3xl w-[900px]">
+    <h2 class="text-3xl font-bold mb-8 text-center">Portofolio</h2>
+
+    <div class="grid grid-cols-2 gap-8">
+
+      <!-- PENGALAMAN ORGANISASI -->
+      <div class="bg-white/50 rounded-2xl p-8">
+        <h3 class="text-lg font-bold mb-4 text-center">
+          Pengalaman Organisasi
+        </h3>
+
+        <ul class="list-disc max-w-base mx-auto space-y-2">
+          <li>Anggota Bidang BPKW PR IPM Darul Arqam Putri 2021-2023</li>
+          <li>Sekretaris Bidang PKK PR IPM Darul Arqam Putri 2023-2024</li>
+          <li>Ketua Bidang PKK PR IPM Darul Arqam Putri 2024-2025</li>
+        </ul>
+      </div>
+
+      <!-- PENGALAMAN ACARA -->
+      <div class="bg-white/50 rounded-2xl p-8">
+        <h3 class="text-lg font-bold mb-4 text-center">
+          Pengalaman Acara
+        </h3>
+
+        <ul class="list-disc max-w-base mx-auto space-y-2">
+          <li>Sekretaris Pelaksana FORTASI 2023</li>
+          <li>Ketua Pelaksana Managing Organization 2024</li>
+          <li>Pelatihan Kader Pelajar Muhammadiyah 2024</li>
+          <li>Praktik Kerja Lapangan 2024</li>
+          <li>Volunteer BACARITA 2025</li>
+          <li>Volunteer POLJAR 2025</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- BACK (tidak muncul di welcome) -->
+<button id="backBtn" onclick="goBack()" class="back-btn hidden">←</button>
+
+<script>
+  let currentPage = "welcome";
+
+  function showPage(id) {
+    document.querySelectorAll(".page")
+      .forEach(p => p.classList.remove("active"));
+
+    document.getElementById(id).classList.add("active");
+    currentPage = id;
+
+    document.getElementById("backBtn")
+      .classList.toggle("hidden", id === "welcome");
+  }
+
+  function goBack() {
+    showPage("menu");
+  }
+</script>
+
+</body>
+</html>
